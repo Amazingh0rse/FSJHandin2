@@ -2,11 +2,11 @@ const express = require ("express")
 const app = express();
 import fetch from 'node-fetch'
 
-app.get("/whattodo", async (req, res) => {
+app.get("/whattodo", async (req: any, res: any) => {
     const whatToDo = await fetch("https://www.boredapi.com/api/activity").then(r => r.json())
     res.json(whatToDo)
 })
-app.get("/nameinfo/:name", async (req, res) => {
+app.get("/nameinfo/:name", async (req: any, res: any) => {
     const name = req.params.name
     const promises = [
         fetch(`https://api.genderize.io?name=${name}`).then(r => r.json()),
